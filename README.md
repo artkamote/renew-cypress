@@ -1,5 +1,6 @@
 # renew-cypress
 
+# install packages
 1. npm install cypress
 2. npm install prettier
 
