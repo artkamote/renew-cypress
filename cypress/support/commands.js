@@ -1,0 +1,100 @@
+// ***********************************************
+// This example commands.js shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+//
+//
+// -- This is a parent command --
+// Cypress.Commands.add('login', (email, password) => { ... })
+let LOCAL_STORAGE = {};
+
+Cypress.Commands.add("saveLocalStorage", () => {
+    Objects.keys(localstorage).forEach(key => {
+        LOCAL_STORAGE[key] = localStorage[key];
+    });
+});
+
+Cypress.Commands.add("restoreLocalStorage", () => {
+    Objects.keys(localstorage).forEach(key => {
+        localstorage.setItem(key, LOCAL_STORAGE[key]);
+    });
+});
+
+
+Cypress.Commands.add("clear_session_storage", () => {
+    cy.window().then((win) => {
+        win.sessionStorage.clear();
+    });
+})
+
+Cypress.Commands.add("navigateTo_Automation_Test_Store", () => {
+    cy.visit("/");
+})
+
+Cypress.Commands.add("selectProduct", productName => {
+    cy.get(".fixed_wrapper .prdocutname").each(($el, index, $list) => {
+        if ($el.text().includes(productName)) {
+            cy.wrap($el).click()
+        }
+    });
+});
+
+// This command is main function is to set and token so we can bypass the login
+Cypress.Commands.add('getAndSetToken', () => {
+    Cypress.log({
+        message: 'Request token sents in local storage',
+        displayName: 'GetToken'
+    });
+    cy.request({
+        url: 'https://api.realworld.io/api/users/login',
+        method: 'POST',
+        body: {
+            user: {
+                // Hard coded for now for testing purposes only
+                email: 'sample1234@gmail.com',
+                password: 'Welcome12345'
+            }
+        }
+    }).then(response => {
+        const {
+            token
+        } = response.body.user;
+        window.localStorage.setItem('jwtToken', token)
+    });
+})
+
+
+Cypress.Commands.add("webDriverUni_ContactForm_Submission", (firstname, lastname, email, comment, $selector, textToLocate) => {
+    cy.get('[name="first_name"]').type(firstname);
+    cy.get('[name="last_name"]').type(lastname);
+    cy.get('[name="email"]').type(email);
+    cy.get('textarea.feedback-input').type(comment);
+    cy.get('[type="submit"]').click();
+    cy.get($selector).contains(textToLocate)
+});
+
+Cypress.Commands.add("addProductToBasket", productName => {
+    cy.get(".fixed_wrapper .prdocutname").each(($el, index, $list) => {
+        if ($el.text() === productName) {
+            cy.log($el.text())
+            cy.get('.productcart').eq(index).click();
+        }
+    });
+
+});
+//
+// -- This is a child command --
+// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
+//
+//
+// -- This is a dual command --
+// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
+//
+//
+// -- This will overwrite an existing command --
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
