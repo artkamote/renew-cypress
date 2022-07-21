@@ -1,4 +1,4 @@
-# renew-cypress
+# renew-cypress-framework
 
 # install packages
 1. npm install cypress
