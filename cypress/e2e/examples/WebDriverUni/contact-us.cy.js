@@ -14,7 +14,6 @@ describe("Test Contact Us form via WebdriverUni", () => {
     beforeEach(function () {
         cy.clear_session_storage();
         homePage_PO.visitHomePage();
-        homePage_PO.clickOn_ContactUs_Button();
     });
 
     it("Should be able to submit a successful submission via contact us form", () => {

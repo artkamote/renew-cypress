@@ -4,8 +4,11 @@
 1. npm install cypress
 2. npm install prettier
 
-# to run on docker
+# to build and run docker container
 docker-compose up
+
+# to stop docker container
+docker-compose down
 
 # to open cypress
 npm run cy:open
