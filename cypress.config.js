@@ -7,7 +7,7 @@ module.exports = defineConfig({
   // the e2e or component configuration
   e2e: {
       defaultCommandTimeout: 30000,
-      videoCompression: false,
+      video: false,
     env: {
       'host' : process.env.HOST,
       'demohost' : process.env.DEMOHOST

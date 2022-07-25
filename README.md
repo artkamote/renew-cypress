@@ -18,7 +18,7 @@
 
 ### Run
 
-1. Execute make ```$ make runCommand```.
+1. Execute make ```$ make runElectron```.
 
 ## Others
 
