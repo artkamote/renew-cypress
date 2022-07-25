@@ -45,19 +45,19 @@ Cypress.Commands.add("selectProduct", productName => {
 });
 
 // This command is main function is to set and token so we can bypass the login
-Cypress.Commands.add('getAndSetToken', () => {
+Cypress.Commands.add('getAndSetToken', (url, email, password) => {
     Cypress.log({
         message: 'Request token sents in local storage',
         displayName: 'GetToken'
     });
     cy.request({
-        url: 'https://api.realworld.io/api/users/login',
+        url,
         method: 'POST',
         body: {
             user: {
                 // Hard coded for now for testing purposes only
-                email: 'sample1234@gmail.com',
-                password: 'Welcome12345'
+                email,
+                password
             }
         }
     }).then(response => {
