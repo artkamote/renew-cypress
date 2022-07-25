@@ -11,11 +11,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.0.1",
+  "dependency": {
     "prettier": "^2.7.1"
   },
   "devDependencies": {
-    "cypress": "^10.3.0"
+    "cypress": "^10.3.1"
   }
 }
