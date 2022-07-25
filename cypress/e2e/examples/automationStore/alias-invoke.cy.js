@@ -1,6 +1,7 @@
+const url = Cypress.env('host');
 describe("Alias and invoke", () => {
     it("Validate a specific hair care product", () => {
-        cy.visit("https://automationteststore.com/");
+        cy.visit(url);
         cy.get("a[href*='product/category&path=']").contains("Hair Care").click();
 
         cy.get(".fixed_wrapper .prdocutname").eq(0).invoke("text").as("productThumbnail");
@@ -9,14 +10,14 @@ describe("Alias and invoke", () => {
     });
 
     it("Validate product thumbnail", () => {
-        cy.visit("https://automationteststore.com/");
+        cy.visit(url);
         cy.get('.thumbnail').as('productThumbnail')
         cy.get('@productThumbnail').should('have.length', 16)
         cy.get('@productThumbnail').find('.productcart').invoke('attr', 'title').should('include', 'Add to Cart')
     });
 
     it.only('Calculate total of normal and sales products', () => {
-        cy.visit('https://automationteststore.com')
+        cy.visit(url)
         cy.get('.thumbnail').as('productThumbnail');
         // cy.get('@productThumbnail').find('.oneprice').each(($el, index, $list) => {
         //    cy.log($el.text());
@@ -48,7 +49,6 @@ describe("Alias and invoke", () => {
             itemsTotal += saleItemsPrice;
             cy.log("Sale price items total: " + saleItemsPrice) 
         })
-0
         .then(() => {
             cy.log("The total price of all products: " + itemsTotal)
             expect(itemsTotal).to.equal(648.5)
