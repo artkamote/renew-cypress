@@ -1,6 +1,6 @@
 class HomePage_PO {
     visitHomePage(){
-        cy.visit(Cypress.env('host'))
+        cy.visit(Cypress.env('webdriveruniurl'))
     }
     
     clickOn_ContactUs_Button() {

@@ -6,7 +6,9 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:chrome": "cypress run --browser chrome"
+    "cy:chrome": "cypress run --browser chrome",
+    "cy:firefox": "cypress run --browser firefox",
+    "cy:edge": "cypress run --browser edge"
   },
   "keywords": [],
   "author": "",

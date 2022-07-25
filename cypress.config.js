@@ -1,9 +1,10 @@
 const { defineConfig } = require('cypress')
 // process.env.HOST='https://automationteststore.com/'
-// process.env.DEMOHOST='https://demo.realworld.io/#/settings'
+// process.env.WEBDRIVERUNI='http://www.webdriveruniversity.com/'
+// process.env.DEMOHOST='https://demo.realworld.io/#'
 // process.env.API_URL = 'https://api.realworld.io/api/users/login'
-// process.env.EMAIL = '<YOUR EMAIL>'
-// process.env.PASSWORD = '<YOUR PASSWORD>'
+// process.env.EMAIL = <YOUR EMAIL>
+// process.env.PASSWORD = <YOUR PASSWORD>
 
 module.exports = defineConfig({
   // setupNodeEvents can be defined in either
@@ -15,6 +16,7 @@ module.exports = defineConfig({
       'host': process.env.HOST,
       'demohost': process.env.DEMOHOST,
       'apiurl': process.env.API_URL,
+      'webdriveruniurl': process.env.WEBDRIVERUNI,
       'email': process.env.EMAIL,
       'password': process.env.PASSWORD
     },
