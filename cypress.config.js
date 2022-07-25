@@ -1,4 +1,6 @@
 const { defineConfig } = require('cypress')
+//process.env.HOST='https://automationteststore.com/'
+//process.env.DEMOHOST='https://demo.realworld.io/#/settings'
 
 module.exports = defineConfig({
   // setupNodeEvents can be defined in either
@@ -7,8 +9,8 @@ module.exports = defineConfig({
       defaultCommandTimeout: 30000,
       videoCompression: false,
     env: {
-      //'https://automationteststore.com/'
-      'host' : process.env.HOST
+      'host' : process.env.HOST,
+      'demohost' : process.env.DEMOHOST
     },
         setupNodeEvents(on, config) {
       console.log(config) // see everything in here!

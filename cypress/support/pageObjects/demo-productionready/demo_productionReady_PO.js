@@ -1,6 +1,6 @@
 class demo_productionReady_PO {
     visitSettingsPage(){
-        cy.visit('https://demo.realworld.io/#/settings') // This is for demo purposes only will be using .env eventually
+        cy.visit(Cypress.env('demohost'))
     }
     
     // For typing on text area
