@@ -22,7 +22,11 @@ describe("Add multiple items to basket", () => {
     });
 
     it.only("Add specific items to basket", () => {
-        cy.visit('https://automationteststore.com/')
+        //cy.visit('https://automationteststore.com/')
+        console.log('process', process.env.HOST)
+        console.log('Cypress.env', Cypress.env('host'))
+
+        cy.visit(Cypress.env('host'))
         cy.window().then(({ app }) => {
             console.log(app);
         })

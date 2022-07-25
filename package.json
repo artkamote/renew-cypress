@@ -11,8 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.0.1",
+  "dependency": {
     "prettier": "^2.7.1"
   },
   "devDependencies": {

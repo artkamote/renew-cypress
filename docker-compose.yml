@@ -1,7 +1,9 @@
+---
 version: '3'
 services:
   e2e:
-    image: "cypress"
-    build: . # This will automatically do the building of the docker
-    container_name: cypress
-    command: npx cypress run --config-file cypress.config.js
+    image: cypress/included:10.3.0
+    env_file: .env
+    volumes:
+      - .:/opt/app:Z
+    working_dir: /opt/app
