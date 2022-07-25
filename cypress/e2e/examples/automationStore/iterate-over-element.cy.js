@@ -1,6 +1,7 @@
+const url = Cypress.env('host')
 describe("Iterate over elements", () => {
   beforeEach(function () {
-    cy.visit("https://automationteststore.com/");
+    cy.visit(url);
     cy.get("a[href*='product/category&path=']").contains("Hair Care").click();
   });
 
