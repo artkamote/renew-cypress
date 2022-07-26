@@ -9,14 +9,14 @@
     "cy:chrome": "cypress run --browser chrome",
     "cy:firefox": "cypress run --browser firefox",
     "cy:edge": "cypress run --browser edge",
-    "cy:triggerAllTest-webdriver": "cypress run --spec cypress/e2e/examples/WebDriverUni/*",
-    "cy:triggerAllTest-localStorageTesting": "cypress run --spec cypress/e2e/examples/localStorageTesting/*",
-    "cy:triggerAllTest-automationStore": "cypress run --spec cypress/e2e/examples/automationStore/*"
+    "cy:triggerAllTest-webdriver": "cypress run --spec \"cypress/e2e/examples/WebDriverUni/*\"",
+    "cy:triggerAllTest-localStorageTesting": "cypress run --spec \"cypress/e2e/examples/localStorageTesting/*\"",
+    "cy:triggerAllTest-automationStore": "cypress run --spec \"cypress/e2e/examples/automationStore/*\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependency": {
+  "dependencies": {
     "prettier": "^2.7.1"
   },
   "devDependencies": {
