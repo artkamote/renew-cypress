@@ -8,7 +8,10 @@
     "cy:run": "cypress run",
     "cy:chrome": "cypress run --browser chrome",
     "cy:firefox": "cypress run --browser firefox",
-    "cy:edge": "cypress run --browser edge"
+    "cy:edge": "cypress run --browser edge",
+    "cy:triggerAllTest-webdriver": "cypress run --spec cypress/e2e/examples/WebDriverUni/*",
+    "cy:triggerAllTest-localStorageTesting": "cypress run --spec cypress/e2e/examples/localStorageTesting/*",
+    "cy:triggerAllTest-automationStore": "cypress run --spec cypress/e2e/examples/automationStore/*"
   },
   "keywords": [],
   "author": "",
