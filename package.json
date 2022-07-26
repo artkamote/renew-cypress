@@ -22,7 +22,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependency": {
+  "dependencies": {
     "prettier": "^2.7.1"
   },
   "devDependencies": {
