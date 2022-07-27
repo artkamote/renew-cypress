@@ -104,6 +104,6 @@ dist
 .tern-port
 */screenshots/
 *cypress/videos/
-
-#vscode
+*allure-report
+*allure-results
 .vscode/

@@ -25,25 +25,25 @@ runElectron: $(DOTENV_TARGET)
 
 _runElectron:
 	npm install --quiet
-	npx cypress run --config-file cypress.config.js
+	npm run regression:electron --config-file cypress.config.js
 
 runChrome: $(DOTENV_TARGET)
 	docker-compose run --rm e2e _runChrome
 
 _runChrome:
 	npm install --quiet
-	npx cypress run --browser chrome --config-file cypress.config.js
+	npm run regression:chrome --config-file cypress.config.js
 
 runFirefox: $(DOTENV_TARGET)
 	docker-compose run --rm e2e _runFirefox
 
 _runFirefox:
 	npm install --quiet
-	npx cypress run --browser firefox --config-file cypress.config.js
+	npm run regression:firefox --config-file cypress.config.js
 
 runEdge: $(DOTENV_TARGET)
 	docker-compose run --rm e2e _runEdge
 
 _runEdge:
 	npm install --quiet
-	npx cypress run --browser edge --config-file cypress.config.js
+	npm run regression:edge --config-file cypress.config.js
