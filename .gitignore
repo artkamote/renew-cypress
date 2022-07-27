@@ -106,3 +106,4 @@ dist
 *cypress/videos/
 *allure-report
 *allure-results
+.vscode/
