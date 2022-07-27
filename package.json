@@ -22,12 +22,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cypress-plugin-snapshots": "^1.4.4",
-    "prettier": "^2.7.1"
-  },
+  
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.28.0",
-    "cypress": "^10.3.0"
+    "cypress": "^10.3.0",
+    "cypress-plugin-snapshots": "^1.4.4",
+    "prettier": "^2.7.1"
   }
 }
