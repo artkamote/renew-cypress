@@ -107,3 +107,4 @@ dist
 *allure-report
 *allure-results
 .vscode/
+*__image_snapshots__
