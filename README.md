@@ -18,7 +18,13 @@
 
 ### Run
 
-1. Execute make ```$ make runElectron```.
+1. Execute make ```$ make runElectron```. 
+2. Execute make ```$ make runChrome```. 
+3. Execute make ```$ make runFirefox```. 
+4. Execute make ```$ make runEdge```. 
+5. Execute make ```$ make runWebdriverUniFolder```. 
+6. Execute make ```$ make runLocalstorageTest```. 
+7. Execute make ```$ make runAutomationStore```. 
 
 ## Others
 

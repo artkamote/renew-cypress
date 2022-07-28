@@ -47,3 +47,25 @@ runEdge: $(DOTENV_TARGET)
 _runEdge:
 	npm install --quiet
 	npm run regression:edge --config-file cypress.config.js
+
+
+runWebdriverUniFolder: $(DOTENV_TARGET)
+	docker-compose run --rm e2e _runWebdriverUniFolder
+
+_runWebdriverUniFolder:
+	npm install --quiet
+	npm run cy:triggerAllTest-webdriver --config-file cypress.config.js
+
+runLocalstorageTest: $(DOTENV_TARGET)
+	docker-compose run --rm e2e _runLocalstorageTest
+
+_runLocalstorageTest:
+	npm install --quiet
+	npm run cy:triggerAllTest-localStorageTesting --config-file cypress.config.js
+
+runAutomationStore: $(DOTENV_TARGET)
+	docker-compose run --rm e2e _runAutomationStore
+
+_runAutomationStore:
+	npm install --quiet
+	npm run cy:triggerAllTest-automationStore --config-file cypress.config.js
