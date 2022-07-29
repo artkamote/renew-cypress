@@ -1,6 +1,5 @@
 const { defineConfig } = require('cypress')
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
-const { initPlugin } = require('cypress-plugin-snapshots/plugin');
 
   // process.env.HOST = 'https://automationteststore.com/'
   // process.env.WEBDRIVERUNI = 'http://www.webdriveruniversity.com/'
@@ -28,7 +27,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       console.log(config) // see everything in here!
       allureWriter(on, config);
-      initPlugin(on, config);
 
       // IMPORTANT return the updated config object
       return config

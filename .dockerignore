@@ -1,0 +1,10 @@
+node_modules/
+*/screenshots/
+screenshots
+.env
+*/screenshots/
+*cypress/videos/
+*allure-report
+*allure-results
+.vscode/
+*.log
