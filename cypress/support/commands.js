@@ -11,6 +11,9 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+const compareSnapshotCommand = require('cypress-visual-regression/dist/command');
+
+compareSnapshotCommand();
 let LOCAL_STORAGE = {};
 
 Cypress.Commands.add("saveLocalStorage", () => {
