@@ -1,5 +1,6 @@
 const { defineConfig } = require('cypress')
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+const getCompareSnapshotsPlugin = require('cypress-visual-regression/dist/plugin');
 
   // process.env.HOST = 'https://automationteststore.com/'
   // process.env.WEBDRIVERUNI = 'http://www.webdriveruniversity.com/'
@@ -15,18 +16,21 @@ module.exports = defineConfig({
   e2e: {
     defaultCommandTimeout: 30000,
     video: false,
-
+  screenshotsFolder: "./cypress/snapshots/actual/",
+  trashAssetsBeforeRuns: true,
     env: {
       'host': process.env.HOST,
       'demohost': process.env.DEMOHOST,
       'apiurl': process.env.API_URL,
       'webdriveruniurl': process.env.WEBDRIVERUNI,
       'email': process.env.EMAIL,
-      'password': process.env.PASSWORD
+      'password': process.env.PASSWORD,
+      'failSilently': false
     },
     setupNodeEvents(on, config) {
       console.log(config) // see everything in here!
       allureWriter(on, config);
+      getCompareSnapshotsPlugin(on, config);
 
       // IMPORTANT return the updated config object
       return config

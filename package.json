@@ -17,13 +17,17 @@
     "regression:chrome": "npm run cy:chrome && npm run allure:report",
     "regression:firefox": "npm run cy:firefox && npm run allure:report",
     "regression:edge": "npm run cy:edge && npm run allure:report",
-    "launchReport": "allure serve"
+    "launchReport": "allure serve",
+    "cy:visualtest": "cypress run --env type=actual",
+    "cy:generatebase": "cypress run --env type=base --config screenshotsFolder=cypress/snapshots/base,testFiles=\"**/*regression-tests.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^10.3.0"
+    "cypress": "^10.3.0",
+    "cypress-visual-regression": "^1.7.0",
+    "del-cli": "^5.0.0"
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.28.0",
