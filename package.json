@@ -19,18 +19,18 @@
     "regression:edge": "npm run cy:edge && npm run allure:report",
     "launchReport": "allure serve",
     "cy:visualtest": "cypress run --env type=actual",
-    "cy:generatebase": "cypress run --env type=base --config screenshotsFolder=cypress/snapshots/base,testFiles=\"**/*regression-tests.js\""
+    "cy:generatebase": "cypress run --env type=base --config screenshotsFolder=./cypress/snapshots/base,specPattern=\"cypress/e2e/**/*.cy.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^10.3.0",
-    "cypress-visual-regression": "^1.7.0",
-    "del-cli": "^5.0.0"
+    "cypress": "^10.3.0"
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.28.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "cypress-visual-regression": "^1.7.0",
+    "del-cli": "^5.0.0"
   }
 }
