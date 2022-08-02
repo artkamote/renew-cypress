@@ -43,11 +43,11 @@ runEdge: $(DOTENV_TARGET) _npmInstall
 	docker-compose run --rm e2e "cypress run --env allure=true --browser edge --config-file cypress.config.js"
 
 runWebdriverUniFolder: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "npm run cy:triggerAllTest-webdriver --config-file cypress.config.js"
+	docker-compose run --rm e2e "cypress run --spec \"cypress/e2e/examples/WebDriverUni/*\" --env allure=true --config-file cypress.config.js"
 
 runLocalstorageTest: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "npm run cy:triggerAllTest-localStorageTesting --config-file cypress.config.js"
+	docker-compose run --rm e2e "cypress run --spec \"cypress/e2e/examples/localStorageTesting/*\" --env allure=true  --config-file cypress.config.js"	
 
 runAutomationStore: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "npm run cy:triggerAllTest-automationStore --config-file cypress.config.js"
+	docker-compose run --rm e2e "cypress run --spec \"cypress/e2e/examples/automationStore/*\" --env allure=true --config-file cypress.config.js"
 	
