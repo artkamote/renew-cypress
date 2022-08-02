@@ -5,8 +5,9 @@
 1. make sure ```Make``` is installed.
 2. uncomment all the process.env.XXXX (where XXXX is the variable name) in ```cypress.config.js``` - not this should  be deleted when mergeing in production.
 3. npm install.
-4. Run cypress ```$ npm run cy:open```.
-5. Run cypress headless ```$ npm run cy:run```.
+4. setup base image for visual regression testing ```$ npm run cy:generatebase```.
+5. Run cypress ```$ npm run cy:open```.
+6. Run cypress headless ```$ npm run cy:run```.
 
 ## Docker execution
 
@@ -18,13 +19,16 @@
 
 ### Run
 
-1. Execute make ```$ make runElectron```. 
-2. Execute make ```$ make runChrome```. 
-3. Execute make ```$ make runFirefox```. 
-4. Execute make ```$ make runEdge```. 
-5. Execute make ```$ make runWebdriverUniFolder```. 
-6. Execute make ```$ make runLocalstorageTest```. 
-7. Execute make ```$ make runAutomationStore```. 
+1. Setup base image first ```$ make runBaseImage```. 
+2. Execute make ```$ make runElectron```. 
+3. Execute make ```$ make runChrome```. 
+4. Execute make ```$ make runFirefox```. 
+5. Execute make ```$ make runEdge```. 
+6. Execute make ```$ make runWebdriverUniFolder```. 
+7. Execute make ```$ make runLocalstorageTest```. 
+8. Execute make ```$ make runAutomationStore```. 
+
+> **_NOTE:_**  arm64/M1/M2 no support for Chrome, Firefox and Edge docker image. 
 
 ## Others
 

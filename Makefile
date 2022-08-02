@@ -22,47 +22,32 @@ dotenv:
 _npmInstall:
 	npm install -D --quiet
 
+# will execute and generate base image 
+runBaseImage: $(DOTENV_TARGET) _npmInstall
+	docker-compose run --rm e2e "cypress run --env type=base --config screenshotsFolder=./cypress/snapshots/base,specPattern=\"cypress/e2e/**/*.cy.{js,ts,tsx}\""
+
 # will execute all the data setup 
 runElectron: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "make _runElectron"
+	docker-compose run --rm e2e "cypress run --env allure=true --config-file cypress.config.js"
 
-_runElectron: 
-	cypress run --env allure=true --config-file cypress.config.js
-#	npm run regression:electron --config-file cypress.config.js
-
+# note: this will not run in Mac M1/M2 chip
 runChrome: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "make _runChrome"
+	docker-compose run --rm e2e "npm run regression:chrome --config-file cypress.config.js"
 
-_runChrome: 
-	npm run regression:chrome --config-file cypress.config.js
-
+# note: this will not run in Mac M1/M2 chip
 runFirefox: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "make _runFirefox"
+	docker-compose run --rm e2e "npm run regression:firefox --config-file cypress.config.js"
 
-_runFirefox: 
-	npm run regression:firefox --config-file cypress.config.js
-
+# note: this will not run in Mac M1/M2 chip
 runEdge: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "make _runEdge"
-
-_runEdge: 
-	npm run regression:edge --config-file cypress.config.js
-
+	docker-compose run --rm e2e "npm run regression:edge --config-file cypress.config.js"
 
 runWebdriverUniFolder: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "make _runWebdriverUniFolder"
-
-_runWebdriverUniFolder: 
-	npm run cy:triggerAllTest-webdriver --config-file cypress.config.js
+	docker-compose run --rm e2e "npm run cy:triggerAllTest-webdriver --config-file cypress.config.js"
 
 runLocalstorageTest: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "make _runLocalstorageTest"
-
-_runLocalstorageTest: 
-	npm run cy:triggerAllTest-localStorageTesting --config-file cypress.config.js
+	docker-compose run --rm e2e "npm run cy:triggerAllTest-localStorageTesting --config-file cypress.config.js"
 
 runAutomationStore: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "make _runAutomationStore"
-
-_runAutomationStore: 
-	npm run cy:triggerAllTest-automationStore --config-file cypress.config.js
+	docker-compose run --rm e2e "npm run cy:triggerAllTest-automationStore --config-file cypress.config.js"
+	
