@@ -8,6 +8,8 @@ const getCompareSnapshotsPlugin = require('cypress-visual-regression/dist/plugin
   // process.env.API_URL = 'https://api.realworld.io/api/users/login'
   // process.env.EMAIL = 'sample1234@gmail.com'
   // process.env.PASSWORD = 'Welcome12345'
+  // process.env.AUTOMATIONSTORE_EMAIL = 'pabloqa123'
+  // process.env.AUTOMATIONSTORE_PASSWORD = '123456'
   // process.env.THRESHOLD = 0.01
 
 module.exports = defineConfig({
@@ -25,6 +27,8 @@ module.exports = defineConfig({
       'webdriveruniurl': process.env.WEBDRIVERUNI,
       'email': process.env.EMAIL,
       'password': process.env.PASSWORD,
+      'automation_email': process.env.AUTOMATIONSTORE_EMAIL,
+      'automation_password': process.env.AUTOMATIONSTORE_PASSWORD,
       'failSilently': false
     },
     setupNodeEvents(on, config) {
