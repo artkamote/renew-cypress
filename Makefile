@@ -32,15 +32,15 @@ runElectron: $(DOTENV_TARGET) _npmInstall
 
 # note: this will not run in Mac M1/M2 chip
 runChrome: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "npm run regression:chrome --config-file cypress.config.js"
+	docker-compose run --rm e2e "cypress run --env allure=true --browser chrome --config-file cypress.config.js"
 
 # note: this will not run in Mac M1/M2 chip
 runFirefox: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "npm run regression:firefox --config-file cypress.config.js"
+	docker-compose run --rm e2e "cypress run --env allure=true --browser firefox --config-file cypress.config.js"
 
 # note: this will not run in Mac M1/M2 chip
 runEdge: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "npm run regression:edge --config-file cypress.config.js"
+	docker-compose run --rm e2e "cypress run --env allure=true --browser edge --config-file cypress.config.js"
 
 runWebdriverUniFolder: $(DOTENV_TARGET) _npmInstall
 	docker-compose run --rm e2e "npm run cy:triggerAllTest-webdriver --config-file cypress.config.js"
