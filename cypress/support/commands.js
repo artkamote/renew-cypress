@@ -90,6 +90,22 @@ Cypress.Commands.add("addProductToBasket", productName => {
     });
 
 });
+
+// This is for generic type on textbox
+Cypress.Commands.add("typeOnTextBox", (element, value) => {
+    cy.get(element).type(value)
+})
+
+// This is for button with chaining value
+Cypress.Commands.add("clickElementByText", (element, tag, text) => {
+    cy.get(element).find(tag).contains(text).click();
+})
+
+// This is for button clicking by id
+Cypress.Commands.add("clickButtonById", (element) => {
+    cy.get(element).click();
+})
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
