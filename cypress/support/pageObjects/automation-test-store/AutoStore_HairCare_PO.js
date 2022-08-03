@@ -1,21 +1,22 @@
+import * as selectors from '../../../fixtures/selectors.json'
+
 class AutoStore_HairCare_PO {
     addHairCareProductsToBasket() {
         globalThis.data.productName.forEach(function (element) {
             cy.addProductToBasket(element);
         });
         cy.log('Add multiple items to cart')
-        cy.get('.dropdown-toggle > .fa').click();
-       
+        cy.clickButtonById(selectors.homecare.dropDownToggle);       
     }
 
     clickCheckout() {
       cy.log('Click Checkout button');
-      cy.get('#cart_checkout1').click();
+      cy.clickButtonById(selectors.homecare.cartCheckout);      
     }
 
     clickConfirmOder() {
         cy.log('Click checkout button');
-        cy.get('#checkout_btn').click();
+        cy.clickButtonById(selectors.homecare.checkoutButton);
     }
 }
 export default AutoStore_HairCare_PO; 

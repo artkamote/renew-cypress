@@ -1,0 +1,13 @@
+{
+    "homecare": {
+        "subNav": "a[href*='product/category&path=']",
+        "cartCheckout": "#cart_checkout1",
+        "checkoutButton": "#checkout_btn",
+        "dropDownToggle": ".dropdown-toggle > .fa"
+    },
+    "login": {
+        "email": "#loginFrm_loginname",
+        "password": "#loginFrm_password",
+        "loginform": "#loginFrm"
+    }
+}

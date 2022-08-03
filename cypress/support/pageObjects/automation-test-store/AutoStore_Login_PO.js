@@ -1,12 +1,17 @@
+import * as selectors from '../../../fixtures/selectors.json'
 class AutoStore_Login_PO {
+    accessHomePage(){
+        cy.visit(Cypress.env('host') + 'index.php?rt=account/login ')
+    }
+    
     typeLoginForm(email, password) {
         cy.log('Type email and password')
-        cy.get('#loginFrm_loginname').type(email);
-        cy.get('#loginFrm_password').type(password);
+        cy.typeOnTextBox(selectors.login.email, email)
+        cy.typeOnTextBox(selectors.login.password, password)
     }
     clickLoginButton(){
         cy.log('Click login button')
-        cy.get('#loginFrm').find('button').contains('Login').click();
+        cy.clickElementByText(selectors.login.loginform, 'button', 'Login');
     }
 }
 export default AutoStore_Login_PO; 
