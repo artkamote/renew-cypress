@@ -16,7 +16,7 @@ describe("Add multiple items to basket", () => {
     beforeEach(function () {
         cy.clear_session_storage();
         autoStore_Homepage_PO.accessHomePage();
-        autoStore_Homepage_PO.clickOn_HairCare_Link();
+        autoStore_Homepage_PO.clickOn_HairCare_Link('Hair Care');
     });
 
     it("Add specific items to basket", () => {
