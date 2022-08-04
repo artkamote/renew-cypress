@@ -71,16 +71,12 @@ Cypress.Commands.add('getAndSetToken', (url, email, password) => {
     });
 })
 
+// This command add single product to the cart
+Cypress.Commands.add('addProductToBasketViaApi', (value) => {
+    cy.request("GET", Cypress.env('host') + value)
+})
 
-Cypress.Commands.add("webDriverUni_ContactForm_Submission", (firstname, lastname, email, comment, $selector, textToLocate) => {
-    cy.get('[name="first_name"]').type(firstname);
-    cy.get('[name="last_name"]').type(lastname);
-    cy.get('[name="email"]').type(email);
-    cy.get('textarea.feedback-input').type(comment);
-    cy.get('[type="submit"]').click();
-    cy.get($selector).contains(textToLocate)
-});
-
+// This command Multiple products to UI
 Cypress.Commands.add("addProductToBasket", productName => {
     cy.get(".fixed_wrapper .prdocutname").each(($el, index, $list) => {
         if ($el.text() === productName) {
@@ -105,6 +101,7 @@ Cypress.Commands.add("clickElementByText", (element, tag, text) => {
 Cypress.Commands.add("clickButtonById", (element) => {
     cy.get(element).click();
 })
+
 
 //
 // -- This is a child command --

@@ -16,6 +16,7 @@ describe("Add multiple items to basket", () => {
 
     beforeEach(function () {
         cy.clear_session_storage();
+        autoStore_HairCare_PO.addHairCareProductsToBasket();
         autoStore_Login_PO.accessHomePage();
         autoStore_Login_PO.typeLoginForm(Cypress.env('automation_email'), Cypress.env('automation_password'));
         autoStore_Login_PO.clickLoginButton();
@@ -23,7 +24,7 @@ describe("Add multiple items to basket", () => {
     });
 
     it("Add specific items to basket", () => {
-        autoStore_HairCare_PO.addHairCareProductsToBasket();
+      
         autoStore_HairCare_PO.clickCheckout();
         cy.wait(3000);
         autoStore_HairCare_PO.clickConfirmOder();
