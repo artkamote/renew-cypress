@@ -71,6 +71,7 @@ Cypress.Commands.add('getAndSetToken', (url, email, password) => {
     });
 })
 
+// This command add single product to the cart
 Cypress.Commands.add('addProductToBasketViaApi', (value) => {
     cy.request("GET", Cypress.env('host') + value)
 })
