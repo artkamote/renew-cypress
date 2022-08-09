@@ -54,4 +54,23 @@ describe("Alias and invoke", () => {
             expect(itemsTotal).to.equal(648.5)
         })
     });
+    
+    it('Test for file upload', function (){
+
+        //file to be uploaded path in project folder
+        const p = 'Monitor.png'
+  
+        // launch URL
+        cy.visit("https://the-internet.herokuapp.com/upload")
+  
+        //upload file with attachFile
+        cy.fileUpload('#file-upload', p)
+       
+  
+        //click on upload
+        cy.get('#file-submit').click()
+  
+        //verify uploaded file
+        cy.get('#uploaded-files').contains('Picture')
+     });
 });
