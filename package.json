@@ -29,8 +29,9 @@
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.28.0",
-    "prettier": "^2.7.1",
+    "cypress-file-upload": "^5.0.8",
     "cypress-visual-regression": "^1.7.0",
-    "del-cli": "^5.0.0"
+    "del-cli": "^5.0.0",
+    "prettier": "^2.7.1"
   }
 }

@@ -102,15 +102,18 @@ Cypress.Commands.add("clickButtonById", (element) => {
     cy.get(element).click();
 })
 
+// This is for button clicking by id
+Cypress.Commands.add("clickButtonById", (element) => {
+    cy.get(element).click();
+})
 
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// This command for selecting value on the drop down with assertion
+Cypress.Commands.add("selectByValue", (element, value) => {
+    cy.get(element).select(value).should('have.value', value)
+})
+
+// This command is for the file upload
+Cypress.Commands.add("fileUpload", (element, fileName) => {
+    cy.get(element).attachFile(fileName)
+
+})
