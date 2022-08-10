@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-      - name: Create enviroment variable
+      - name: Build Using Make
         env:
           HOST: https://automationteststore.com/
           DEMOHOST: https://demo.realworld.io/#
@@ -21,5 +21,4 @@ jobs:
           AUTOMATIONSTORE_EMAIL: pabloqa123
           AUTOMATIONSTORE_PASSWORD: 123456
           THRESHOLD: 0.01
-      - name: Build Using Make
         run: make runChrome
