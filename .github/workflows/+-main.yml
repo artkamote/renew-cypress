@@ -21,4 +21,4 @@ jobs:
           AUTOMATIONSTORE_EMAIL: pabloqa123
           AUTOMATIONSTORE_PASSWORD: 123456
           THRESHOLD: 0.01
-        run: 	docker-compose run --rm e2e "cypress run --env allure=true --browser chrome --config-file cypress.config.js"
+        run: 	touch .env && make runChrome
