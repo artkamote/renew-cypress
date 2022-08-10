@@ -16,11 +16,11 @@ describe("Add multiple items to basket", () => {
 
     beforeEach(function () {
         cy.clear_session_storage();
-        autoStore_HairCare_PO.addHairCareProductsToBasket();
         autoStore_Login_PO.accessHomePage();
         autoStore_Login_PO.typeLoginForm(Cypress.env('automation_email'), Cypress.env('automation_password'));
         autoStore_Login_PO.clickLoginButton();
         autoStore_Homepage_PO.clickOn_HairCare_Link('Hair Care');
+        autoStore_HairCare_PO.addHairCareProductsToBasket();
     });
 
     it("Add specific items to basket", () => {
