@@ -1,7 +1,8 @@
 name: Cypress Tests
 on:
   push:
-    - Sample134567-patch-1
+    branches:
+      - 'Sample134567-patch-1'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
