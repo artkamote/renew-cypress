@@ -3,6 +3,18 @@ on:
   push:
     branches:
       - 'Sample134567-patch-1'
+
+env:
+  HOST: https://automationteststore.com/
+  DEMOHOST: https://demo.realworld.io/#
+  WEBDRIVERUNI: http://www.webdriveruniversity.com/
+  API_URL: https://api.realworld.io/api/users/login
+  EMAIL: sample1234@gmail.com
+  PASSWORD: Welcome12345
+  AUTOMATIONSTORE_EMAIL: pabloqa123
+  AUTOMATIONSTORE_PASSWORD: 123456
+  THRESHOLD: 0.01
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
