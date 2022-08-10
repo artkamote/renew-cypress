@@ -9,5 +9,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-      - name: make build
+      - name: Build Using Make
         uses: make runChrome
