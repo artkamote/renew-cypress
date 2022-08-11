@@ -11,16 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.2
       - name: Write environment variable
-        env:
-          HOST:  ${{ secrets.HOST }}
-          DEMOHOST: ${{ secrets.DEMOHOST }}
-          WEBDRIVERUNI: ${{ secrets.WEBDRIVERUNI }}
-          API_URL: ${{ secrets.API_URL }}
-          EMAIL: ${{ secrets.EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          AUTOMATIONSTORE_EMAIL: ${{ secrets.AUTOMATIONSTORE_EMAIL }}
-          AUTOMATIONSTORE_PASSWORD: ${{ secrets.AUTOMATIONSTORE_PASSWORD }}
-          THRESHOLD: ${{ secrets.THRESHOLD }}
         run: 	|
           touch .env
           echo HOST=$${{ secrets.HOST }}
