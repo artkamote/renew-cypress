@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-      - name: Write cypress
+      - name: Build Using Make
         env:
           HOST:  ${{ secrets.HOST }}
           DEMOHOST: ${{ secrets.DEMOHOST }}
@@ -21,8 +21,4 @@ jobs:
           AUTOMATIONSTORE_EMAIL: ${{ secrets.AUTOMATIONSTORE_EMAIL }}
           AUTOMATIONSTORE_PASSWORD: ${{ secrets.AUTOMATIONSTORE_PASSWORD }}
           THRESHOLD: ${{ secrets.THRESHOLD }}
-          RECORD_SECRET: ${{ secrets.RECORD_SECRET }}
-          GIT_SECRET: ${{ secrets.GIT_SECRET }}
-          PROJECTID: ${{ secrets.PROJECTID }}
-        run: touch > .env && make runElectron
-          
+        run: 	touch .env && make runChrome
