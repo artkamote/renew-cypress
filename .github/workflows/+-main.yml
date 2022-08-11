@@ -10,18 +10,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-      - name: Write data on the .env file
-      run: 
-          touch .env >
-          echo '${{ secrets.HOST }}' > .env
-          echo '${{ secrets.DEMOHOST }}' > .env
-          echo '${{ secrets.WEBDRIVERUNI }}' > .env
-          echo '${{ secrets.API_URL }}' > .env
-          echo '${{ secrets.EMAIL }}' > .env
-          echo '${{ secrets.PASSWORD }}' > .env
-          echo '${{ secrets.AUTOMATIONSTORE_EMAIL }}' > .env
-          echo '${{ secrets.AUTOMATIONSTORE_PASSWORD }}' > .env
-          echo '${{ secrets.THRESHOLD }}' > .env
-          echo '${{ secrets.RECORD_SECRET }}' > .env
-          echo '${{ secrets.GIT_SECRET }}' > .env
-          echo '${{ secrets.PROJECTID }}' > .env && make runElectron
+      - name: Write cypress
+        env:
+          HOST:  ${{ github.HOST }}
+          DEMOHOST: ${{ github.DEMOHOST }}
+          WEBDRIVERUNI: ${{ github.WEBDRIVERUNI }}
+          API_URL: ${{ github.API_URL }}
+          EMAIL: ${{ github.EMAIL }}
+          PASSWORD: ${{ github.PASSWORD }}
+          AUTOMATIONSTORE_EMAIL: ${{ github.AUTOMATIONSTORE_EMAIL }}
+          AUTOMATIONSTORE_PASSWORD: ${{ github.AUTOMATIONSTORE_PASSWORD }}
+          THRESHOLD: ${{ github.THRESHOLD }}
+          RECORD_SECRET: ${{ github.RECORD_SECRET }}
+          GIT_SECRET: ${{ github.GIT_SECRET }}
+          PROJECTID: ${{ github.PROJECTID }}
+        run: 	touch .env >  echo '${{ secrets.HOST }}' > .env && make runElectron
+          
