@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2.4.2
       - name: Write data on the .env file
       run: 
-          touch .env
+          touch .env >
           echo '${{ secrets.HOST }}' > .env
           echo '${{ secrets.DEMOHOST }}' > .env
           echo '${{ secrets.WEBDRIVERUNI }}' > .env
