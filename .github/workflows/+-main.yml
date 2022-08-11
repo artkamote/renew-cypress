@@ -21,10 +21,8 @@ jobs:
           AUTOMATIONSTORE_EMAIL: ${{ secrets.AUTOMATIONSTORE_EMAIL }}
           AUTOMATIONSTORE_PASSWORD: ${{ secrets.AUTOMATIONSTORE_PASSWORD }}
           THRESHOLD: ${{ secrets.THRESHOLD }}
-        run: 	touch .env && make runChrome
-        with:
-          record: true
-        env:
           RECORD_SECRET: ${{ secrets.RECORD_SECRET }}
           GIT_SECRET: ${{ secrets.GIT_SECRET }}
           PROJECTID: ${{ secrets.PROJECTID }}
+        run: 	touch .env && make runChrome
+          
