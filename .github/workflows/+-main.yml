@@ -13,13 +13,13 @@ jobs:
       - name: Write environment variable
         run: 	|
           touch .env
-          echo HOST=$${{ secrets.HOST }}
-          echo DEMOHOST=$${{ secrets.DEMOHOST }}
-          echo WEBDRIVERUNI=$${{ secrets.WEBDRIVERUNI }}
-          echo API_URL=$${{ secrets.API_URL }}
-          echo EMAIL=$${{ secrets.EMAIL }}
-          echo PASSWORD=$${{ secrets.PASSWORD }}
-          echo AUTOMATIONSTORE_EMAIL=$${{ secrets.AUTOMATIONSTORE_EMAIL }}
-          echo AUTOMATIONSTORE_PASSWORD=$${{ secrets.AUTOMATIONSTORE_PASSWORD }}
-          echo THRESHOLD=$${{ secrets.THRESHOLD }}
+          echo HOST=$${{ secrets.HOST }} >> .env
+          echo DEMOHOST=$${{ secrets.DEMOHOST }} >> .env
+          echo WEBDRIVERUNI=$${{ secrets.WEBDRIVERUNI }} >> .env
+          echo API_URL=$${{ secrets.API_URL }} >> .env
+          echo EMAIL=$${{ secrets.EMAIL }} >> .env
+          echo PASSWORD=$${{ secrets.PASSWORD }} >> .env
+          echo AUTOMATIONSTORE_EMAIL=$${{ secrets.AUTOMATIONSTORE_EMAIL }} >> .env
+          echo AUTOMATIONSTORE_PASSWORD=$${{ secrets.AUTOMATIONSTORE_PASSWORD }} >> .env
+          echo THRESHOLD=$${{ secrets.THRESHOLD }} >> .env
           make runChrome
