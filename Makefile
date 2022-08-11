@@ -28,7 +28,7 @@ runBaseImage: $(DOTENV_TARGET) _npmInstall
 
 # will execute all the data setup 
 runElectron: $(DOTENV_TARGET) _npmInstall
-	docker-compose run --rm e2e "cypress run --env allure=true --config-file cypress.config.js"
+	docker-compose run --rm e2e "cypress run --record --key 9b6ef89d-e75b-4760-bf09-a2c580df76e0 --env allure=true --config-file cypress.config.js"
 
 # note: this will not run in Mac M1/M2 chip
 runChrome: $(DOTENV_TARGET) _npmInstall
