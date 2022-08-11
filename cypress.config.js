@@ -20,6 +20,7 @@ module.exports = defineConfig({
     video: false,
   screenshotsFolder: "./cypress/snapshots/actual/",
   trashAssetsBeforeRuns: true,
+  projectId: "b8reto",
     env: {
       'host': process.env.HOST,
       'demohost': process.env.DEMOHOST,
