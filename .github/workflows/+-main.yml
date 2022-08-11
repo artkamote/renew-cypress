@@ -32,4 +32,4 @@ jobs:
           echo AUTOMATIONSTORE_EMAIL=$${{ secrets.AUTOMATIONSTORE_EMAIL }}
           echo AUTOMATIONSTORE_PASSWORD=$${{ secrets.AUTOMATIONSTORE_PASSWORD }}
           echo THRESHOLD=$${{ secrets.THRESHOLD }}
-          cat .env
+          make runChrome
