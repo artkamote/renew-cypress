@@ -11,7 +11,7 @@ const getCompareSnapshotsPlugin = require('cypress-visual-regression/dist/plugin
   // process.env.AUTOMATIONSTORE_EMAIL = 'pabloqa123'
   // process.env.AUTOMATIONSTORE_PASSWORD = '123456'
   // process.env.THRESHOLD = 0.01
-      process.env.PROJECTID="b8reto"
+  // process.env.PROJECTID="b8reto"
 
 module.exports = defineConfig({
   // setupNodeEvents can be defined in either
