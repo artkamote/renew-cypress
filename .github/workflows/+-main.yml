@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-      - name: Build Using Make
+      - name: Write environment variable
         env:
           HOST:  ${{ secrets.HOST }}
           DEMOHOST: ${{ secrets.DEMOHOST }}
@@ -21,4 +21,15 @@ jobs:
           AUTOMATIONSTORE_EMAIL: ${{ secrets.AUTOMATIONSTORE_EMAIL }}
           AUTOMATIONSTORE_PASSWORD: ${{ secrets.AUTOMATIONSTORE_PASSWORD }}
           THRESHOLD: ${{ secrets.THRESHOLD }}
-        run: 	touch .env && make runChrome
+        run: 	|
+          touch .env
+          echo HOST=$${{ secrets.HOST }}
+          echo HOST=$${{ secrets.DEMOHOST }}
+          echo HOST=$${{ secrets.WEBDRIVERUNI }}
+          echo HOST=$${{ secrets.API_URL }}
+          echo HOST=$${{ secrets.EMAIL }}
+          echo HOST=$${{ secrets.PASSWORD }}
+          echo HOST=$${{ secrets.AUTOMATIONSTORE_EMAIL }}
+          echo HOST=$${{ secrets.AUTOMATIONSTORE_PASSWORD }}
+          echo HOST=$${{ secrets.THRESHOLD }}
+          cat .env
