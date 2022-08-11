@@ -24,5 +24,5 @@ jobs:
           RECORD_SECRET: ${{ github.RECORD_SECRET }}
           GIT_SECRET: ${{ github.GIT_SECRET }}
           PROJECTID: ${{ github.PROJECTID }}
-        run: echo '${{ secrets.HOST }}' > .env && make runElectron
+        run: touch > .env && make runElectron
           
