@@ -12,17 +12,17 @@ jobs:
         uses: actions/checkout@v2.4.2
       - name: Write cypress
         env:
-          HOST:  ${{ github.HOST }}
-          DEMOHOST: ${{ github.DEMOHOST }}
-          WEBDRIVERUNI: ${{ github.WEBDRIVERUNI }}
-          API_URL: ${{ github.API_URL }}
-          EMAIL: ${{ github.EMAIL }}
-          PASSWORD: ${{ github.PASSWORD }}
-          AUTOMATIONSTORE_EMAIL: ${{ github.AUTOMATIONSTORE_EMAIL }}
-          AUTOMATIONSTORE_PASSWORD: ${{ github.AUTOMATIONSTORE_PASSWORD }}
-          THRESHOLD: ${{ github.THRESHOLD }}
-          RECORD_SECRET: ${{ github.RECORD_SECRET }}
-          GIT_SECRET: ${{ github.GIT_SECRET }}
-          PROJECTID: ${{ github.PROJECTID }}
+          HOST:  ${{ secrets.HOST }}
+          DEMOHOST: ${{ secrets.DEMOHOST }}
+          WEBDRIVERUNI: ${{ secrets.WEBDRIVERUNI }}
+          API_URL: ${{ secrets.API_URL }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          AUTOMATIONSTORE_EMAIL: ${{ secrets.AUTOMATIONSTORE_EMAIL }}
+          AUTOMATIONSTORE_PASSWORD: ${{ secrets.AUTOMATIONSTORE_PASSWORD }}
+          THRESHOLD: ${{ secrets.THRESHOLD }}
+          RECORD_SECRET: ${{ secrets.RECORD_SECRET }}
+          GIT_SECRET: ${{ secrets.GIT_SECRET }}
+          PROJECTID: ${{ secrets.PROJECTID }}
         run: touch > .env && make runElectron
           
