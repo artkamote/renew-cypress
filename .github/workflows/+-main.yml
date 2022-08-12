@@ -12,6 +12,10 @@ jobs:
         uses: actions/checkout@v2.4.2
         with:
           record: true
+        env:
+          CYPRESS_RECORD_KEY=${{ secrets.CYPRESS_RECORD_KEY }}
+          GIT_SECRET=${{ secrets.GIT_SECRET }}
+
       - name: Write environment variable
         run: 	|
           touch .env
@@ -26,7 +30,4 @@ jobs:
           echo THRESHOLD=$${{ secrets.THRESHOLD }} >> .env
           echo PROJECTID=$${{ secrets.PROJECTID }} >> .env
           make runChrome
-  
-        env:
-          CYPRESS_RECORD_KEY=${{ secrets.CYPRESS_RECORD_KEY }}
-          GIT_SECRET=${{ secrets.GIT_SECRET }}
+       
