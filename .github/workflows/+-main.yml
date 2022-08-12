@@ -10,9 +10,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-      - name: Write environment variable
         with:
           record: true
+      - name: Write environment variable
         run: 	|
           touch .env
           echo HOST=$${{ secrets.HOST }} >> .env
