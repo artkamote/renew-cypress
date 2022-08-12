@@ -14,7 +14,7 @@ jobs:
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GIT_SECRET: ${{ secrets.GIT_SECRET }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
 
       - name: Write environment variable
         run: 	|
