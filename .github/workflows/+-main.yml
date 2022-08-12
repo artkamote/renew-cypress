@@ -22,4 +22,5 @@ jobs:
           echo AUTOMATIONSTORE_EMAIL=$${{ secrets.AUTOMATIONSTORE_EMAIL }} >> .env
           echo AUTOMATIONSTORE_PASSWORD=$${{ secrets.AUTOMATIONSTORE_PASSWORD }} >> .env
           echo THRESHOLD=$${{ secrets.THRESHOLD }} >> .env
+          echo PROJECTID=$${{ secrets.PROJECTID }} >> .env
           make runChrome
