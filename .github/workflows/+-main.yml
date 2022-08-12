@@ -24,5 +24,8 @@ jobs:
           echo THRESHOLD=$${{ secrets.THRESHOLD }} >> .env
           echo PROJECTID=$${{ secrets.PROJECTID }} >> .env
           make runChrome
+        record: true
+
         env:
-          CYPRESS_RECORD_KEY: $${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_RECORD_KEY=${{ secrets.CYPRESS_RECORD_KEY }}
+          GIT_SECRET=${{ secrets.GIT_SECRET }}
