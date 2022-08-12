@@ -19,7 +19,8 @@
     "regression:edge": "npm run cy:edge && npm run allure:report",
     "launchReport": "allure serve",
     "cy:visualtest": "cypress run --env type=actual",
-    "cy:generatebase": "cypress run --env type=base --config screenshotsFolder=./cypress/snapshots/base,specPattern=\"cypress/e2e/**/*.cy.js\""
+    "cy:generatebase": "cypress run --env type=base --config screenshotsFolder=./cypress/snapshots/base,specPattern=\"cypress/e2e/**/*.cy.js\"",
+    "cy:dashboard": "npx cypress run --record --key 9b6ef89d-e75b-4760-bf09-a2c580df76e0"
   },
   "keywords": [],
   "author": "",
