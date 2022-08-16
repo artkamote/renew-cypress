@@ -10,8 +10,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-        
-      - name: Test marketplace action
+          
+      - name: Write environment variable
+        run: 	|
+          touch .env
+          echo HOST=$${{ secrets.HOST }} >> .env
+          echo DEMOHOST=$${{ secrets.DEMOHOST }} >> .env
+          echo WEBDRIVERUNI=$${{ secrets.WEBDRIVERUNI }} >> .env
+          echo API_URL=$${{ secrets.API_URL }} >> .env
+          echo EMAIL=$${{ secrets.EMAIL }} >> .env
+          echo PASSWORD=$${{ secrets.PASSWORD }} >> .env
+          echo AUTOMATIONSTORE_EMAIL=$${{ secrets.AUTOMATIONSTORE_EMAIL }} >> .env
+          echo AUTOMATIONSTORE_PASSWORD=$${{ secrets.AUTOMATIONSTORE_PASSWORD }} >> .env
+          echo THRESHOLD=$${{ secrets.THRESHOLD }} >> .env
+          echo PROJECTID=$${{ secrets.PROJECTID }} >> .env
+          make runChrome
+
+        - name: Test marketplace action
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
@@ -28,19 +43,14 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
-          
-      - name: Write environment variable
-        run: 	|
-          touch .env
-          echo HOST=$${{ secrets.HOST }} >> .env
-          echo DEMOHOST=$${{ secrets.DEMOHOST }} >> .env
-          echo WEBDRIVERUNI=$${{ secrets.WEBDRIVERUNI }} >> .env
-          echo API_URL=$${{ secrets.API_URL }} >> .env
-          echo EMAIL=$${{ secrets.EMAIL }} >> .env
-          echo PASSWORD=$${{ secrets.PASSWORD }} >> .env
-          echo AUTOMATIONSTORE_EMAIL=$${{ secrets.AUTOMATIONSTORE_EMAIL }} >> .env
-          echo AUTOMATIONSTORE_PASSWORD=$${{ secrets.AUTOMATIONSTORE_PASSWORD }} >> .env
-          echo THRESHOLD=$${{ secrets.THRESHOLD }} >> .env
-          echo PROJECTID=$${{ secrets.PROJECTID }} >> .env
-          make runChrome
+
+      - name: Post the link to the report
+        if: always()
+        uses: Sibz/github-status-action@v1
+        with: 
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test report'
+          state: 'success'
+          sha: ${{ github.event.pull_request.head.sha }}
+          target_url: simple-elf.github.io/github-allure-history/${{ github.run_number }}
        
