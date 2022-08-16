@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-          
+
       - name: Write environment variable
         run: 	|
           touch .env
@@ -26,7 +26,7 @@ jobs:
           echo PROJECTID=$${{ secrets.PROJECTID }} >> .env
           make runChrome
 
-        - name: Test marketplace action
+      - name: Test marketplace action
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
