@@ -12,6 +12,7 @@ const getCompareSnapshotsPlugin = require('cypress-visual-regression/dist/plugin
   // process.env.AUTOMATIONSTORE_PASSWORD = '123456'
   // process.env.THRESHOLD = 0.01
   // process.env.PROJECTID="b8reto"
+  process.env.API_REALWORLD="https://api.realworld.io/api/"
 
 module.exports = defineConfig({
   // setupNodeEvents can be defined in either
@@ -31,7 +32,8 @@ module.exports = defineConfig({
       'password': process.env.PASSWORD,
       'automation_email': process.env.AUTOMATIONSTORE_EMAIL,
       'automation_password': process.env.AUTOMATIONSTORE_PASSWORD,
-      'failSilently': false
+      'failSilently': false,
+      'api_realworld': process.env.API_REALWORLD
     },
     setupNodeEvents(on, config) {
       console.log(config) // see everything in here!

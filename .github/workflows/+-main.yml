@@ -2,7 +2,7 @@ name: Cypress Tests
 on:
   push:
     branches:
-      - 'main'
+      - 'feature/api-testing'
 
 jobs:
   cypress-run:
@@ -22,4 +22,5 @@ jobs:
           echo AUTOMATIONSTORE_EMAIL=$${{ secrets.AUTOMATIONSTORE_EMAIL }} >> .env
           echo AUTOMATIONSTORE_PASSWORD=$${{ secrets.AUTOMATIONSTORE_PASSWORD }} >> .env
           echo THRESHOLD=$${{ secrets.THRESHOLD }} >> .env
+           echo API_REALWORLD=$${{ secrets.API_REALWORLD }} >> .env
           make runChrome
