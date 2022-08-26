@@ -1,7 +1,6 @@
 describe('Post Request', () => {
-    it('post Request', () => {
+    it.only('post Request', () => {
         cy.getAndSetToken(Cypress.env('apiurl'), Cypress.env('email'), Cypress.env('password')).then((res) => {
-            Cypress.log(Cypress.env('api_realworld'))
             cy.request({
                 method: "POST",
                 url: Cypress.env('api_realworld') + 'articles',
