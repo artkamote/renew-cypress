@@ -1,6 +1,6 @@
 class demo_productionReady_PO {
     visitSettingsPage(){
-        cy.visit(Cypress.env('demohost') + 'settings')
+        cy.visit(Cypress.env('demohost') + 'settings');
     }
     
     // For typing on text area
